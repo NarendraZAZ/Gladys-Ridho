@@ -176,105 +176,6 @@
             transform: scale(1.2);
         }
 
-        /* MESSAGE POPUP */
-        .popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            padding: 15px;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-            max-width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
-            z-index: 10000;
-            animation: fadeIn 0.5s ease;
-            padding-top: 30px;
-            position: relative;
-            font-size: 0.9rem;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translate(-50%, -60%); }
-            to { opacity: 1; transform: translate(-50%, -50%); }
-        }
-
-        .popup-header {
-            position: absolute;
-            top: 10px;
-            left: 20px;
-            font-size: 1.1rem;
-            color: #ff416c;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-        }
-
-        .popup-header i {
-            margin-right: 8px;
-            font-size: 1.2rem;
-        }
-
-        .close-popup {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            font-size: 1.5rem;
-            color: #999;
-            cursor: pointer;
-            transition: color 0.2s;
-        }
-
-        .close-popup:hover {
-            color: #ff416c;
-        }
-
-        /* GANTI P DENGAN DIV */
-        .popup-paragraph {
-            text-align: left;
-            line-height: 1.6;
-            color: #333;
-            margin-bottom: 15px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-            font-size: 0.95rem;
-        }
-
-        .popup-paragraph.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .popup .signature {
-            text-align: right;
-            font-weight: bold;
-            color: #ff6b6b;
-            margin-top: 20px;
-            font-style: italic;
-            font-size: 0.9rem;
-        }
-
-        .open-popup-btn {
-            background: #ff6b6b;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-size: 1rem;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: background 0.3s;
-            font-weight: bold;
-        }
-
-        .open-popup-btn:hover {
-            background: #ff4757;
-        }
-
         /* WHATSAPP FORM (KESAN PESAN) */
         .message-form {
             background: #fff;
@@ -545,102 +446,168 @@
             opacity: 0.9;
         }
 
-        /* RESPONSIVE */
+        /* POPUP OVERLAY BARU */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .popup-content {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            transform: scale(0.95);
+            transition: transform 0.4s ease;
+        }
+
+        .popup-overlay.active .popup-content {
+            transform: scale(1);
+        }
+
+        .popup-header {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            color: #ff416c;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .close-popup {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.8rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #ff416c;
+            transition: color 0.3s;
+        }
+
+        .close-popup:hover {
+            color: #ff1744;
+        }
+
+        .love-letter {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: left;
+            padding: 25px;
+            background: #fdf6fd;
+            border-radius: 15px;
+            margin-top: 20px;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+
+        .popup-paragraph {
+            text-align: left;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 15px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+            font-size: 1.1rem;
+        }
+
+        .popup-paragraph.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .popup .signature {
+            text-align: right;
+            font-weight: bold;
+            color: #ff6b6b;
+            margin-top: 20px;
+            font-style: italic;
+            font-size: 1rem;
+        }
+
+        /* STYLE UNTUK TOMBOL "KAMU SAYANG AKU GAK?" */
+        .open-popup-btn {
+            background: linear-gradient(45deg, #ff6b6b, #ff4757);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            font-family: 'Dancing Script', cursive;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+            margin-top: 20px;
+        }
+
+        .open-popup-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+        }
+
+        /* RESPONSIVE POPUP */
         @media (max-width: 768px) {
-            .header h2 {
-                font-size: 1.3rem;
-            }
-            .content p {
-                font-size: 0.9rem;
-            }
-            #pin-input {
-                font-size: 1rem;
-                padding: 10px;
-            }
-            .photo-grid {
-                grid-template-columns: 1fr;
-            }
-            .popup {
-                padding: 10px;
+            .popup-content {
+                padding: 25px;
                 max-width: 95%;
-                font-size: 0.85rem;
-                max-height: 70vh;
             }
             .popup-header {
-                font-size: 0.9rem;
+                font-size: 1.8rem;
             }
-            .popup-paragraph {
-                font-size: 0.85rem;
-                line-height: 1.5;
-                margin-bottom: 10px;
-            }
-            .popup .signature {
-                font-size: 0.8rem;
-                margin-top: 15px;
-            }
-            .message-form {
+            .love-letter {
+                font-size: 0.95rem;
                 padding: 15px;
-                max-width: 95%;
-            }
-            .message-form h3 {
-                font-size: 1.1rem;
-            }
-            .form-group label {
-                font-size: 0.8rem;
-            }
-            .form-group input,
-            .form-group textarea {
-                font-size: 0.8rem;
-                padding: 8px;
-            }
-            .submit-btn {
-                font-size: 0.9rem;
-                padding: 10px 20px;
-            }
-            .mini-photo {
-                width: 50px;
-                height: 50px;
-                bottom: 10px;
-                right: 10px;
-            }
-            .watermark {
-                width: 40px;
-                height: 40px;
-                bottom: 5px;
-                right: 5px;
-            }
-        }
-
-        /* FALLBACK IMAGE */
-        img {
-            object-fit: cover;
-            object-position: center;
-        }
-
-        img[src=""] {
-            background: #eee;
-            border: 2px dashed #ccc;
-        }
-
-        /* MOBILE-FRIENDLY POPUP TEXT */
-        @media (max-width: 480px) {
-            .popup {
-                padding: 10px;
-                max-width: 95%;
-                font-size: 0.8rem;
-                max-height: 65vh;
-            }
-            .popup-header {
-                font-size: 0.85rem;
             }
             .popup-paragraph {
-                font-size: 0.8rem;
-                line-height: 1.4;
-                margin-bottom: 8px;
+                font-size: 0.95rem;
+                line-height: 1.5;
             }
             .popup .signature {
-                font-size: 0.75rem;
-                margin-top: 10px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .popup-content {
+                padding: 20px;
+            }
+            .popup-header {
+                font-size: 1.5rem;
+            }
+            .love-letter {
+                font-size: 0.85rem;
+                padding: 10px;
+            }
+            .popup-paragraph {
+                font-size: 0.85rem;
+                line-height: 1.4;
+            }
+            .popup .signature {
+                font-size: 0.8rem;
             }
         }
     </style>
@@ -695,22 +662,23 @@
         </div>
     </div>
 
-    <!-- POPUP MESSAGE -->
-    <div class="popup" id="message-popup">
-        <span class="close-popup">&times;</span>
-        <div class="popup-header">
-            <i>💌</i> Surat Cinta dari Gladys Imut
+    <!-- POPUP MESSAGE (REVISI MENJADI OVERLAY) -->
+    <div class="popup-overlay" id="message-popup">
+      <div class="popup-content">
+        <button class="close-popup" onclick="closeLoveLetter()">&times;</button>
+        <h3 class="popup-header">💌 Surat Cinta dari Gladys Imut</h3>
+        <div class="love-letter">
+          <div id="para1" class="popup-paragraph">makasiiii ya sayanggg karena kamu selalu ada buatt akuu, nemeninn aku di setiap keadaan, walau aku kadang suka ribett. makasiii yaa udahh hadir di hidup akuu dan jadi bagiann penting yang ga pernah ku sangka sebelumnya. aku ngerasa beruntung banget punya kamuuuuuu</div>
+          <div id="para2" class="popup-paragraph">maaffff yaaaa kalau aku sering nyusahin kamu,buat kamuu maluu sering bikin kamu kepikiran, atau tanpa sadar bikin kamu overthinkingg.maafff juga kalau kadang aku egois, lebih mikirin perasaanku sendiri dan lupa lihat dari sisi kamu. akuu gaaa pernah ada niat buat nyakitin atau bikin kamu capee.</div>
+          <div id="para3" class="popup-paragraph">tolongg sabar sama aku yaaaa aku lagi belajar jadi versi yang lebih baik, buat kamu dan buat hubungan kita.makasiii udahh bertahan dan tetap milih aku sampai sekarang. i lovee youuu🤍🤍🤍</div>
+          <div class="signature">from: Gladys imut<br>to: Ridho gemes</div>
         </div>
-        <!-- GANTI P DENGAN DIV -->
-        <div id="para1" class="popup-paragraph">makasiiii ya sayanggg karena kamu selalu ada buatt akuu, nemeninn aku di setiap keadaan, walau aku kadang suka ribett. makasiii yaa udahh hadir di hidup akuu dan jadi bagiann penting yang ga pernah ku sangka sebelumnya. aku ngerasa beruntung banget punya kamuuuuuu</div>
-        <div id="para2" class="popup-paragraph">maaffff yaaaa kalau aku sering nyusahin kamu,buat kamuu maluu sering bikin kamu kepikiran, atau tanpa sadar bikin kamu overthinkingg.maafff juga kalau kadang aku egois, lebih mikirin perasaanku sendiri dan lupa lihat dari sisi kamu. akuu gaaa pernah ada niat buat nyakitin atau bikin kamu capee.</div>
-        <div id="para3" class="popup-paragraph">tolongg sabar sama aku yaaaa aku lagi belajar jadi versi yang lebih baik, buat kamu dan buat hubungan kita.makasiii udahh bertahan dan tetap milih aku sampai sekarang. i lovee youuu🤍🤍🤍</div>
-        <div class="signature">from: Gladys imut<br>to: Ridho gemes</div>
 
         <!-- WATERMARK DI POPUP -->
-        <div class="watermark" style="bottom: 10px; right: 10px;">
-            <img src="./images/wmnaren.jpeg" alt="Watermark by Naren" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCI+PHJlY3Qgd2lkdGg9IjUwIiBoZWlnaHQ9IjUwIiBmaWxsPSIjZWVlIi8+PHRleHQgeD0iMjUiIHk9IjI1IiBmb250LWZhbWlseT0iQXJpYWwsIEhlbHZldGljYSwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSI4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNjY2Ij5XbSBOb3QgRm91bmQ8L3RleHQ+PC9zdmc+';">
+        <div class="watermark" style="bottom: 10px; right: 10px; z-index: 2;">
+          <img src="./images/wmnaren.jpeg" alt="Watermark by Naren" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCI+PHJlY3Qgd2lkdGg9IjUwIiBoZWlnaHQ9IjUwIiBmaWxsPSIjZWVlIi8+PHRleHQgeD0iMjUiIHk9IjI1IiBmb250LWZhbWlseT0iQXJpYWwsIEhlbHZldGljYSwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSI4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNjY2Ij5XbSBOb3QgRm91bmQ8L3RleHQ+PC9zdmc+';">
         </div>
+      </div>
     </div>
 
     <!-- SURPRISE WHEN LEAVING -->
@@ -756,16 +724,12 @@
         const pinSubmit = document.getElementById('pin-submit');
         const pinScreen = document.getElementById('pin-screen');
         const mainContent = document.getElementById('main-content');
-        const messagePopup = document.getElementById('message-popup');
         const openPopupBtn = document.querySelector('.open-popup-btn');
-        const closePopupBtn = document.querySelector('.close-popup');
         const pinHint = document.querySelector('.pin-hint');
 
-        // Correct PIN: 26042903
         const correctPin = '26042903';
         let failedAttempts = 0;
 
-        // Allow Enter key to submit
         pinInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
                 e.preventDefault();
@@ -777,74 +741,51 @@
 
         function validatePin() {
             const userPin = pinInput.value.trim();
-
             if (userPin === correctPin) {
-                // Success: Hide PIN screen, show main content with transition
                 pinScreen.style.display = 'none';
-
-                // Add transition effect
                 mainContent.style.display = 'block';
                 mainContent.classList.add('fade-in-effect');
-
-                // Change background smoothly
                 setTimeout(() => {
                     document.body.style.background = 'linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%)';
                 }, 500);
-
             } else {
-                // Wrong PIN: Add vibration effect ONLY
                 document.body.classList.add('vibrate');
-                setTimeout(() => {
-                    document.body.classList.remove('vibrate');
-                }, 500);
-
-                // Show hint after first failure
+                setTimeout(() => document.body.classList.remove('vibrate'), 500);
                 failedAttempts++;
-                if (failedAttempts >= 1) {
-                    pinHint.classList.add('visible');
-                }
-
-                // Clear input
+                if (failedAttempts >= 1) pinHint.classList.add('visible');
                 pinInput.value = '';
             }
         }
 
-        // OPEN POPUP WITH DELAYED PARAGRAPHS (AUTO REFRESH)
-        openPopupBtn.addEventListener('click', () => {
-            messagePopup.style.display = 'block';
+        // POPUP FUNGSI
+        function openLoveLetter() {
+            const popup = document.getElementById('message-popup');
+            popup.classList.add('active');
 
-            // Reset all paragraphs
             const paras = [
                 document.getElementById('para1'),
                 document.getElementById('para2'),
                 document.getElementById('para3')
             ];
+            paras.forEach(p => p.classList.remove('visible'));
 
-            paras.forEach(p => {
-                p.classList.remove('visible');
+            paras.forEach((p, i) => {
+                setTimeout(() => p.classList.add('visible'), 500 + i * 600);
             });
+        }
 
-            // Show paragraphs one by one with delay
-            paras.forEach((p, index) => {
-                setTimeout(() => {
-                    p.classList.add('visible');
-                }, 500 + (index * 600)); // Delay 0.5s, then 0.6s each
-            });
+        function closeLoveLetter() {
+            document.getElementById('message-popup').classList.remove('active');
+        }
+
+        document.querySelector('.open-popup-btn').addEventListener('click', openLoveLetter);
+        document.querySelector('.close-popup').addEventListener('click', closeLoveLetter);
+
+        document.getElementById('message-popup').addEventListener('click', function(e) {
+            if (e.target === this) closeLoveLetter();
         });
 
-        // CLOSE POPUP
-        closePopupBtn.addEventListener('click', () => {
-            messagePopup.style.display = 'none';
-        });
-
-        // Close popup when clicking outside
-        window.addEventListener('click', (e) => {
-            if (e.target === messagePopup) {
-                messagePopup.style.display = 'none';
-            }
-        });
-
-        // WHATSAPP LINK GENERATOR + NO MESSAGE SURPRISE
+        // WHATSAPP LINK
         const nameInput = document.getElementById('name');
         const messageInput = document.getElementById('message');
         const whatsappLink = document.getElementById('whatsapp-link');
@@ -876,29 +817,24 @@
 
         leaveAnywayBtn.addEventListener('click', () => {
             noMessageSurprise.style.display = 'none';
-            window.open('https://www.google.com', '_blank'); // Optional: redirect or just close
+            window.open('https://www.google.com', '_blank');
         });
 
-        // PHOTO ZOOM & RANDOM INTERACTION (NO ALERT)
+        // PHOTO INTERACTIONS
         const photoItems = document.querySelectorAll('.photo-item');
         photoItems.forEach(item => {
             item.addEventListener('click', () => {
                 const img = item.querySelector('img');
                 img.classList.toggle('zoomed');
-
-                // Random interaction WITHOUT alert
                 const interactions = [
-                    // Shake the photo
                     () => {
                         item.style.animation = 'shake 0.5s ease-in-out';
                         setTimeout(() => item.style.animation = '', 500);
                     },
-                    // Make it spin
                     () => {
                         item.style.transform = 'rotate(360deg)';
                         setTimeout(() => item.style.transform = '', 1000);
                     },
-                    // Add heart particles around it
                     () => {
                         for (let i = 0; i < 5; i++) {
                             const heart = document.createElement('div');
@@ -911,7 +847,6 @@
                             setTimeout(() => heart.remove(), 3000);
                         }
                     },
-                    // Play a soft sound (if supported)
                     () => {
                         const audio = new Audio('data:audio/mp3;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4Ljc2LjEwMAAAAAAAAAAAAAAA//tQwAAAAAAAAAAAAAAAAAAAAAAASW5mbwAAAA8AAAAeAAAADgAAABkAAAAyAAAATGVuZ3RoIG9mIGF1ZGlvIGZpbGUgaXMgbWFya2VkIGluIGJpdHM=');
                         audio.play().catch(e => console.log("Audio not supported"));
@@ -922,23 +857,19 @@
             });
         });
 
-        // MINI PHOTO POPUPS RANDOM INTERACTION (NO ALERT)
+        // MINI PHOTO INTERACTIONS
         const miniPhotos = document.querySelectorAll('.mini-photo');
         miniPhotos.forEach(photo => {
             photo.addEventListener('click', () => {
-                // Random interaction WITHOUT alert
                 const interactions = [
-                    // Scale up and down
                     () => {
                         photo.style.transform = 'scale(1.5)';
                         setTimeout(() => photo.style.transform = '', 500);
                     },
-                    // Rotate it
                     () => {
                         photo.style.transform = 'rotate(45deg)';
                         setTimeout(() => photo.style.transform = '', 1000);
                     },
-                    // Add floating hearts
                     () => {
                         for (let i = 0; i < 3; i++) {
                             const heart = document.createElement('div');
@@ -951,7 +882,6 @@
                             setTimeout(() => heart.remove(), 3000);
                         }
                     },
-                    // Change its animation speed
                     () => {
                         photo.style.animation = 'fly 2s ease-in-out infinite';
                         setTimeout(() => photo.style.animation = 'fly 8s ease-in-out infinite', 2000);
@@ -962,18 +892,15 @@
             });
         });
 
-        // SURPRISE WHEN LEAVING (MOUSE LEAVE OR TAB CLOSE)
+        // SURPRISE WHEN LEAVING
         let isLeaving = false;
-
-        // Mouse leave detection
         document.addEventListener('mouseleave', () => {
-            if (!isLeaving && !document.querySelector('.popup').style.display.includes('block')) {
+            if (!isLeaving) {
                 isLeaving = true;
                 document.getElementById('surprise').style.display = 'flex';
             }
         });
 
-        // Tab close detection
         window.addEventListener('beforeunload', (e) => {
             if (!isLeaving) {
                 e.preventDefault();
@@ -983,13 +910,12 @@
             }
         });
 
-        // Stay button
         document.getElementById('stay-btn').addEventListener('click', () => {
             document.getElementById('surprise').style.display = 'none';
             isLeaving = false;
         });
 
-        // Create floating hearts randomly
+        // FLOATING HEARTS
         function createHeart() {
             const heart = document.createElement('div');
             heart.className = 'heart';
@@ -998,14 +924,8 @@
             heart.style.left = Math.random() * 80 + 10 + '%';
             heart.style.animationDuration = (Math.random() * 2 + 2) + 's';
             document.body.appendChild(heart);
-
-            // Remove after animation
-            setTimeout(() => {
-                heart.remove();
-            }, 5000);
+            setTimeout(() => heart.remove(), 5000);
         }
-
-        // Create hearts every 3 seconds
         setInterval(createHeart, 3000);
     </script>
 
