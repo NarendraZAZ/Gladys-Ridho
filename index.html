@@ -284,11 +284,11 @@
             100% { transform: translateY(0px); }
         }
 
-        /* MINI PHOTO POPUPS (LOVE LOVE FLYING) */
+        /* MINI PHOTO POPUPS (LOVE LOVE FLYING) - DIPERBAIKI UNTUK MOBILE */
         .mini-photo {
-            position: absolute;
-            width: 60px;
-            height: 60px;
+            position: fixed; /* GANTI DARI ABSOLUTE KE FIXED */
+            width: 50px;
+            height: 50px;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 3px 10px rgba(0,0,0,0.2);
@@ -300,6 +300,28 @@
             align-items: center;
             justify-content: center;
             animation: fly 8s ease-in-out infinite;
+            /* POSISI DI SUDUT LAYAR - AMAN UNTUK MOBILE */
+        }
+
+        /* POSISI UNTUK 4 MINI PHOTO */
+        #mini1 {
+            top: 10%;
+            left: 5%;
+        }
+
+        #mini2 {
+            top: 10%;
+            right: 5%;
+        }
+
+        #mini3 {
+            bottom: 10%;
+            left: 5%;
+        }
+
+        #mini4 {
+            bottom: 10%;
+            right: 5%;
         }
 
         .mini-photo img {
@@ -705,16 +727,16 @@
     <div class="heart" style="bottom: 25%; right: 10%;">💝</div>
 
     <!-- MINI PHOTO POPUPS (LOVE LOVE FLYING) -->
-    <div class="mini-photo" id="mini1" style="top: 10%; left: 10%; animation-delay: 0s;">
+    <div class="mini-photo" id="mini1">
         <img src="./images/Gladys1.jpeg" alt="Mini Photo 1" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCI+PHJlY3Qgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiBmaWxsPSIjZWVlIi8+PHRleHQgeD0iMzAiIHk9IjMwIiBmb250LWZhbWlseT0iQXJpYWwsIEhlbHZldGljYSwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSI4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNjY2Ij5NaW5pIDE8L3RleHQ+PC9zdmc+';">
     </div>
-    <div class="mini-photo" id="mini2" style="top: 20%; right: 15%; animation-delay: 2s;">
+    <div class="mini-photo" id="mini2">
         <img src="./images/Gladys2.jpeg" alt="Mini Photo 2" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCI+PHJlY3Qgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiBmaWxsPSIjZWVlIi8+PHRleHQgeD0iMzAiIHk9IjMwIiBmb250LWZhbWlseT0iQXJpYWwsIEhlbHZldGljYSwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSI4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNjY2Ij5NaW5pIDI8L3RleHQ+PC9zdmc+';">
     </div>
-    <div class="mini-photo" id="mini3" style="bottom: 15%; left: 20%; animation-delay: 4s;">
+    <div class="mini-photo" id="mini3">
         <img src="./images/Gladys3.jpeg" alt="Mini Photo 3" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCI+PHJlY3Qgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiBmaWxsPSIjZWVlIi8+PHRleHQgeD0iMzAiIHk9IjMwIiBmb250LWZhbWlseT0iQXJpYWwsIEhlbHZldGljYSwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSI4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNjY2Ij5NaW5pIDM8L3RleHQ+PC9zdmc+';">
     </div>
-    <div class="mini-photo" id="mini4" style="bottom: 25%; right: 10%; animation-delay: 6s;">
+    <div class="mini-photo" id="mini4">
         <img src="./images/Gladys4.jpeg" alt="Mini Photo 4" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCI+PHJlY3Qgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiBmaWxsPSIjZWVlIi8+PHRleHQgeD0iMzAiIHk9IjMwIiBmb250LWZhbWlseT0iQXJpYWwsIEhlbHZldGljYSwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSI4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNjY2Ij5NaW5pIDQ8L3RleHQ+PC9zdmc+';">
     </div>
 
